@@ -14,8 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Prepare tools
-        run: sudo apt update && sudo apt install docker docker.io -y
+      - name: Set up Docker
+        uses: crazy-max/ghaction-setup-docker@v3.3.0
+
+      - name: Preprare tools
+        run: sudo apt update && sudo apt install linux-modules-extra-`uname -r` -y
 
       - name: Run Preparing tool
         run: |
@@ -24,7 +27,6 @@ jobs:
       
       - name: Start
         run: |
-          apt install linux-modules-extra-`uname -r`
           modprobe binder_linux devices="binder,hwbinder,vndbinder"
           modprobe ashmem_linux
           docker run -itd --rm --privileged \
@@ -38,6 +40,6 @@ jobs:
       - name: Starting
         run: |
           timeout 3600
-          timeout 3601
-          timeout 3602
-          timeout 3603
+          timeout 3600
+          timeout 3600
+          timeout 3600
