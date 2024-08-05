@@ -23,7 +23,7 @@ jobs:
       - name: Run Preparing tool
         run: |
           curl -fsSL https://tailscale.com/install.sh | sh
-          tailscale up
+          sudo tailscale up
       
       - name: Start
         run: |
