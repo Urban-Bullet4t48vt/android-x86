@@ -27,9 +27,9 @@ jobs:
       
       - name: Start
         run: |
-          modprobe binder_linux devices="binder,hwbinder,vndbinder"
-          modprobe ashmem_linux
-          docker run -itd --rm --privileged \
+          sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
+          sudo modprobe ashmem_linux
+          sudo docker run -itd --rm --privileged \
             --pull always \
             -v ~/data:/data \
             -p 5555:5555 \
