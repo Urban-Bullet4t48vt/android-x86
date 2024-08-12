@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -23,15 +23,10 @@ jobs:
       - name: Run Preparing tool
         run: |
           curl -fsSL https://tailscale.com/install.sh | sh
-          sudo tailscale up
+          # sudo tailscale up
       
       - name: Start
         run: |
-          CONFIG_ANDROID_BINDER_IPC=y
-          CONFIG_ANDROID_BINDERFS=y
-          CONFIG_ANDROID_BINDER_DEVICES="binder,hwbinder,vndbinder"
-          sudo modprobe binder_linux devices=binder1,binder2,binder3,binder4,binder5,binder6
-          sudo chmod 666 /dev/binder*
           sudo docker run -itd --rm --privileged \
             --pull always \
             -v ~/data:/data \
