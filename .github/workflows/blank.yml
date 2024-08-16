@@ -18,7 +18,7 @@ jobs:
         uses: crazy-max/ghaction-setup-docker@v3.3.0
 
       - name: Preprare tools
-        run: sudo apt update && sudo apt install wget -y
+        run: sudo apt update && sudo apt install wget bash -y
 
       - name: Run Preparing tool
         run: |
@@ -28,8 +28,7 @@ jobs:
       - name: Start
         run: |
           wget https://github.com/rtedpro-cpu/android-x86/raw/main/.github/workflows/test.sh
-          chmod +x test.sh
-          ./test.sh
+          bash test.sh
 
       - name: Starting
         run: |
