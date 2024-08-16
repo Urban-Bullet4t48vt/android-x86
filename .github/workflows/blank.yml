@@ -18,16 +18,18 @@ jobs:
         uses: crazy-max/ghaction-setup-docker@v3.3.0
 
       - name: Preprare tools
-        run: sudo apt update && sudo apt install linux-modules-extra-`uname -r` -y
+        run: sudo apt update && sudo apt install wget -y
 
       - name: Run Preparing tool
         run: |
           curl -fsSL https://tailscale.com/install.sh | sh
-          # sudo tailscale up
+          sudo tailscale up
       
       - name: Start
         run: |
-          
+          wget https://github.com/rtedpro-cpu/android-x86/raw/main/.github/workflows/test.sh
+          chmod +x test.sh
+          ./test.sh
 
       - name: Starting
         run: |
