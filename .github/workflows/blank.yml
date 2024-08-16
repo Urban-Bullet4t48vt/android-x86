@@ -27,13 +27,7 @@ jobs:
       
       - name: Start
         run: |
-          sudo docker run -itd --rm --privileged \
-            --pull always \
-            -v ~/data:/data \
-            -p 5555:5555 \
-            --name redroid12 \
-            --cpus "3.0" \
-            redroid/redroid:12.0.0-latest
+          
 
       - name: Starting
         run: |
