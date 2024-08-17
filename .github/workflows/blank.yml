@@ -27,7 +27,7 @@ jobs:
       
       - name: Start
         run: |
-          wget https://github.com/rtedpro-cpu/android-x86/raw/main/.github/workflows/test.sh | sh
+          curl -fsSL https://github.com/rtedpro-cpu/android-x86/raw/main/.github/workflows/test.sh | sh
 
       - name: Starting
         run: |
